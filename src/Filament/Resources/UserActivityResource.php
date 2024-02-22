@@ -2,8 +2,8 @@
 
 namespace Edwink\FilamentUserActivity\Filament\Resources;
 
-use Edwink\FilamentUserActivity\Filament\Resources\UserActivityResource\Pages;
 use App\Models\User;
+use Edwink\FilamentUserActivity\Filament\Resources\UserActivityResource\Pages;
 use Edwink\FilamentUserActivity\Models\UserActivity;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -19,20 +19,18 @@ class UserActivityResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-
     public static function getNavigationGroup(): ?string
     {
         return __('filament-user-activity::user-activity.resource.navigation');
     }
 
-
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                TextInput::make("url"),
-                Select::make("user_id")
-                    ->options(User::pluck("name", "id"))
+                TextInput::make('url'),
+                Select::make('user_id')
+                    ->options(User::pluck('name', 'id')),
             ])->disabled();
     }
 
@@ -40,8 +38,8 @@ class UserActivityResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make("url"),
-                TextColumn::make("user.name")
+                TextColumn::make('url'),
+                TextColumn::make('user.name'),
             ])
             ->filters([
                 //

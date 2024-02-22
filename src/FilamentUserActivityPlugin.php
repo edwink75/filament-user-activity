@@ -18,8 +18,7 @@ class FilamentUserActivityPlugin implements Plugin
         $panel
             ->resources([
                 UserActivityResource::class,
-            ])
-          ;
+            ]);
     }
 
     public function boot(Panel $panel): void
