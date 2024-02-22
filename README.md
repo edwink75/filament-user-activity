@@ -50,8 +50,19 @@ return [
 ## Usage
 
 ```php
-$filamentUserActivity = new Edwink\FilamentUserActivity();
-echo $filamentUserActivity->echoPhrase('Hello, Edwink!');
+use Edwink\FilamentUserActivity\FilamentUserActivityPlugin;
+
+...
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        ...
+        ->plugins([
+           FilamentUserActivityPlugin::make()
+        ])
+        ...
+}
+...
 ```
 
 ## Testing

@@ -2,6 +2,7 @@
 
 namespace Edwink\FilamentUserActivity;
 
+use Edwink\FilamentUserActivity\Filament\Resources\UserActivityResource;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
@@ -14,7 +15,11 @@ class FilamentUserActivityPlugin implements Plugin
 
     public function register(Panel $panel): void
     {
-        //
+        $panel
+            ->resources([
+                UserActivityResource::class,
+            ])
+          ;
     }
 
     public function boot(Panel $panel): void
