@@ -36,7 +36,7 @@ class FilamentUserActivityServiceProvider extends PackageServiceProvider
                     ->publishConfigFile()
                     ->publishMigrations()
                     ->askToRunMigrations()
-                    ->askToStarRepoOnGitHub('edwink/filament-user-activity');
+                    ->askToStarRepoOnGitHub('edwink75/filament-user-activity');
             });
 
         $configFileName = $package->shortName();

@@ -7,7 +7,7 @@
 
 
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Registers all requests and displays it conveniently to see currently online users, ie. with any requests in the last 15 minutes / 30 minutes / 60 minutes / day / week
 
 ## Installation
 
@@ -40,6 +40,10 @@ This is the contents of the published config file:
 
 ```php
 return [
+    "table" => [
+        "name" => env("FILAMENT_USER_ACTIVITY_TABLE_NAME", "user_activities"),
+        "retention-days" => env("FILAMENT_USER_ACTIVITY_RETENTION_DAYS", 60)
+    ]
 ];
 ```
 
