@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Edwink\FilamentUserActivity\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class FilamentUserActivityCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'filament-user-activity';
 
     public $description = 'My command';
 
