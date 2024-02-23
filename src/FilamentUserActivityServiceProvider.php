@@ -57,8 +57,6 @@ class FilamentUserActivityServiceProvider extends PackageServiceProvider
         if (file_exists($package->basePath('/../resources/views'))) {
             $package->hasViews(static::$viewNamespace);
         }
-
-        Livewire::component('filament-user-activity::active-users-table', ActiveUsersTable::class);
     }
 
     public function packageRegistered(): void
@@ -92,6 +90,9 @@ class FilamentUserActivityServiceProvider extends PackageServiceProvider
 
         // Testing
         Testable::mixin(new TestsFilamentUserActivity());
+
+        // Register livewire components
+        Livewire::component('filament-user-activity::active-users-table', ActiveUsersTable::class);
     }
 
     protected function getAssetPackageName(): ?string
