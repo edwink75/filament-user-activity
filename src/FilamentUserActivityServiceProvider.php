@@ -5,7 +5,6 @@ namespace Edwink\FilamentUserActivity;
 use Edwink\FilamentUserActivity\Commands\FilamentUserActivityCommand;
 use Edwink\FilamentUserActivity\Livewire\ActiveUsersTable;
 use Edwink\FilamentUserActivity\Testing\TestsFilamentUserActivity;
-use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
@@ -58,11 +57,12 @@ class FilamentUserActivityServiceProvider extends PackageServiceProvider
         if (file_exists($package->basePath('/../resources/views'))) {
             $package->hasViews(static::$viewNamespace);
         }
+
+        Livewire::component('filament-user-activity::active-users-table', ActiveUsersTable::class);
     }
 
     public function packageRegistered(): void
     {
-        Livewire::component('filament-user-activity::active-users-table', ActiveUsersTable::class);
     }
 
     public function packageBooted(): void
@@ -83,7 +83,7 @@ class FilamentUserActivityServiceProvider extends PackageServiceProvider
 
         // Handle Stubs
         if (app()->runningInConsole()) {
-            foreach (app(Filesystem::class)->files(__DIR__.'/../stubs/') as $file) {
+            foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
                 $this->publishes([
                     $file->getRealPath() => base_path("stubs/filament-user-activity/{$file->getFilename()}"),
                 ], 'filament-user-activity-stubs');
@@ -106,8 +106,8 @@ class FilamentUserActivityServiceProvider extends PackageServiceProvider
     {
         return [
             // AlpineComponent::make('filament-user-activity', __DIR__ . '/../resources/dist/components/filament-user-activity.js'),
-            Css::make('filament-user-activity-styles', __DIR__.'/../resources/dist/filament-user-activity.css'),
-            Js::make('filament-user-activity-scripts', __DIR__.'/../resources/dist/filament-user-activity.js'),
+            Css::make('filament-user-activity-styles', __DIR__ . '/../resources/dist/filament-user-activity.css'),
+            Js::make('filament-user-activity-scripts', __DIR__ . '/../resources/dist/filament-user-activity.js'),
         ];
     }
 
