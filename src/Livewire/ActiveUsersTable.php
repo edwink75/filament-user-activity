@@ -5,18 +5,16 @@ namespace Edwink\FilamentUserActivity\Livewire;
 use App\Models\User;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
-use Filament\Support\Contracts\TranslatableContentDriver;
-use Livewire\Component;
-use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Concerns\InteractsWithTable;
+use Filament\Tables\Contracts\HasTable;
+use Filament\Tables\Table;
+use Livewire\Component;
 
 class ActiveUsersTable extends Component implements HasForms, HasTable
 {
-    use InteractsWithTable;
     use InteractsWithForms;
-
+    use InteractsWithTable;
 
     public function table(Table $table): Table
     {
@@ -37,8 +35,6 @@ class ActiveUsersTable extends Component implements HasForms, HasTable
                 // ...
             ]);
     }
-
-
 
     public function render()
     {

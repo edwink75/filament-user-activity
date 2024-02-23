@@ -22,8 +22,8 @@ class RecordUserActivity
         // Perform action
         if (Auth::id() !== null) {
             UserActivity::create([
-                "url" => config("app.url") . "/" . $request->path(),
-                "user_id" => Auth::id()
+                'url' => config('app.url').'/'.$request->path(),
+                'user_id' => Auth::id(),
             ]);
         }
 

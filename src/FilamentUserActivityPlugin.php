@@ -21,7 +21,7 @@ class FilamentUserActivityPlugin implements Plugin
                 UserActivityResource::class,
             ])
             ->pages([
-                ActiveUsers::class
+                ActiveUsers::class,
             ]);
     }
 

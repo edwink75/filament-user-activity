@@ -9,8 +9,6 @@ trait UserActivityTrait
 {
     /**
      * Get all of the comments for the UserActivityTrait
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function activities(): HasMany
     {
