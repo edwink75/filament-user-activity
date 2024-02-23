@@ -107,8 +107,8 @@ class FilamentUserActivityServiceProvider extends PackageServiceProvider
     {
         return [
             // AlpineComponent::make('filament-user-activity', __DIR__ . '/../resources/dist/components/filament-user-activity.js'),
-            Css::make('filament-user-activity-styles', __DIR__.'/../resources/dist/filament-user-activity.css'),
-            Js::make('filament-user-activity-scripts', __DIR__.'/../resources/dist/filament-user-activity.js'),
+            // Css::make('filament-user-activity-styles', __DIR__.'/../resources/dist/filament-user-activity.css'),
+            // Js::make('filament-user-activity-scripts', __DIR__.'/../resources/dist/filament-user-activity.js'),
         ];
     }
 
