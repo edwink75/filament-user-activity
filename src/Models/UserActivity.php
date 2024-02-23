@@ -12,6 +12,10 @@ class UserActivity extends Model
         'user_id', 'url',
     ];
 
+    protected $casts = [
+        'created_at' => 'datetime',
+    ];
+
     public function getTable()
     {
         return config('filament-user-activity.table.name');
