@@ -3,6 +3,7 @@
 namespace Edwink\FilamentUserActivity;
 
 use Edwink\FilamentUserActivity\Commands\FilamentUserActivityCommand;
+use Edwink\FilamentUserActivity\Livewire\ActiveUsersTable;
 use Edwink\FilamentUserActivity\Testing\TestsFilamentUserActivity;
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
@@ -12,6 +13,7 @@ use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
+use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -60,6 +62,7 @@ class FilamentUserActivityServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
+        Livewire::component('filament-user-activity::active-users-table', ActiveUsersTable::class);
     }
 
     public function packageBooted(): void

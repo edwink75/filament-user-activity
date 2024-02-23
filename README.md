@@ -48,7 +48,35 @@ return [
 ```
 
 ## Usage
+Add Global Middleware in `app/Http/Kernel.php`
+```php
+    /**
+     * The application's global HTTP middleware stack.
+     *
+     * These middleware are run during every request to your application.
+     *
+     * @var array<int, class-string|string>
+     */
+    protected $middleware = [
+        ...
+        \Edwink\FilamentUserActivity\Http\Middleware\RecordUserActivity::class,
+    ];
 
+```
+
+Add trait to User Model `app/Models/User.php` to add relationship `activities`
+```php
+use Edwink\FilamentUserActivity\Traits\UserActivityTrait;
+...
+
+class User extends Authenticatable
+{
+    use UserActivityTrait;
+    ...
+}
+```
+
+Configure your panel to have 2 additional views
 ```php
 use Edwink\FilamentUserActivity\FilamentUserActivityPlugin;
 
