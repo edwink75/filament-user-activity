@@ -2,20 +2,18 @@
 
 namespace Edwink\FilamentUserActivity\Livewire;
 
-use Carbon\Carbon;
 use App\Models\User;
-use Edwink\FilamentUserActivity\Models\UserActivity;
-use Livewire\Component;
+use Carbon\Carbon;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Concerns\InteractsWithForms;
+use Filament\Forms\Contracts\HasForms;
 use Filament\Forms\Form;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Concerns\InteractsWithTable;
+use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Table;
 use Livewire\Attributes\Url;
-use Filament\Forms\Components\Select;
-use Filament\Forms\Contracts\HasForms;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Contracts\HasTable;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Concerns\InteractsWithForms;
-use Filament\Tables\Concerns\InteractsWithTable;
+use Livewire\Component;
 
 class ActiveUsersTable extends Component implements HasForms, HasTable
 {
@@ -25,33 +23,31 @@ class ActiveUsersTable extends Component implements HasForms, HasTable
     #[Url]
     public int $minutes = 30;
 
-
     public function form(Form $form): Form
     {
         return $form
             ->schema([
-                Select::make("minutes")
+                Select::make('minutes')
                     ->options([
-                        30 => "30 Minutes",
-                        60 => "One hour",
-                        120 => "2 Hours",
-                        1440 => "24 hours"
+                        30 => '30 Minutes',
+                        60 => 'One hour',
+                        120 => '2 Hours',
+                        1440 => '24 hours',
                     ])
-                    ->label("Active in last ")
-                    ->reactive()
+                    ->label('Active in last ')
+                    ->reactive(),
             ]);
     }
-
 
     public function table(Table $table): Table
     {
         return $table
             ->query(
-                User::whereHas("activities", function ($query) {
-                    $query->where("created_at", ">", Carbon::now()->subMinutes($this->minutes)->format("Y-m-d H:i:s"));
+                User::whereHas('activities', function ($query) {
+                    $query->where('created_at', '>', Carbon::now()->subMinutes($this->minutes)->format('Y-m-d H:i:s'));
                 })
-                    ->with("activities", function ($query) {
-                        $query->where("created_at", ">", Carbon::now()->subMinutes($this->minutes)->format("Y-m-d H:i:s"));
+                    ->with('activities', function ($query) {
+                        $query->where('created_at', '>', Carbon::now()->subMinutes($this->minutes)->format('Y-m-d H:i:s'));
                     })
             )
             ->columns([
@@ -59,12 +55,12 @@ class ActiveUsersTable extends Component implements HasForms, HasTable
                 TextColumn::make('name'),
                 TextColumn::make('activities.created_at')
                     ->formatStateUsing(function ($state) {
-                        return max(explode(", ", $state));
-                    })->label("Last action"),
+                        return max(explode(', ', $state));
+                    })->label('Last action'),
                 TextColumn::make('activities.url')
                     ->formatStateUsing(function ($state) {
-                        return count(explode(", ",$state));
-                    })->label("Last action"),
+                        return count(explode(', ', $state));
+                    })->label('Last action'),
 
             ])
             ->filters([
@@ -76,7 +72,7 @@ class ActiveUsersTable extends Component implements HasForms, HasTable
             ->bulkActions([
                 // ...
             ])
-            ->paginationPageOptions([50, 100]);;
+            ->paginationPageOptions([50, 100]);
     }
 
     public function render()
