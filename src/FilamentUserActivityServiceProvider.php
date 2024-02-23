@@ -5,7 +5,6 @@ namespace Edwink\FilamentUserActivity;
 use Edwink\FilamentUserActivity\Commands\FilamentUserActivityCommand;
 use Edwink\FilamentUserActivity\Livewire\ActiveUsersTable;
 use Edwink\FilamentUserActivity\Testing\TestsFilamentUserActivity;
-use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
@@ -58,11 +57,12 @@ class FilamentUserActivityServiceProvider extends PackageServiceProvider
         if (file_exists($package->basePath('/../resources/views'))) {
             $package->hasViews(static::$viewNamespace);
         }
+
+        Livewire::component('filament-user-activity::active-users-table', ActiveUsersTable::class);
     }
 
     public function packageRegistered(): void
     {
-        Livewire::component('filament-user-activity::active-users-table', ActiveUsersTable::class);
     }
 
     public function packageBooted(): void
