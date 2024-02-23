@@ -12,7 +12,7 @@ class ActiveUsers extends Page
 
     public static function getNavigationLabel(): string
     {
-        return __("filament-user-activity::user-activity.currently-active-users");
+        return __('filament-user-activity::user-activity.currently-active-users');
     }
 
     public static function getNavigationGroup(): ?string

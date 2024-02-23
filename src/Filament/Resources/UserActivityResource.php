@@ -9,7 +9,6 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
@@ -39,13 +38,13 @@ class UserActivityResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make("created_at")->sortable(),
+                TextColumn::make('created_at')->sortable(),
                 TextColumn::make('url'),
                 TextColumn::make('user.name'),
             ])
             ->filters([
-                SelectFilter::make("user_id")
-                    ->options(User::whereHas("activities")->pluck("name", "id"))
+                SelectFilter::make('user_id')
+                    ->options(User::whereHas('activities')->pluck('name', 'id')),
             ])
             ->actions([
                 //
@@ -54,7 +53,7 @@ class UserActivityResource extends Resource
                 //
             ])
             ->paginationPageOptions([50, 100, 250])
-            ->defaultSort("created_at", "DESC");
+            ->defaultSort('created_at', 'DESC');
     }
 
     public static function getRelations(): array
