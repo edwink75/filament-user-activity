@@ -2,19 +2,21 @@
 
 namespace Edwink\FilamentUserActivity;
 
-use Edwink\FilamentUserActivity\Commands\FilamentUserActivityCommand;
-use Edwink\FilamentUserActivity\Testing\TestsFilamentUserActivity;
-use Filament\Support\Assets\AlpineComponent;
-use Filament\Support\Assets\Asset;
-use Filament\Support\Assets\Css;
+use Livewire\Livewire;
 use Filament\Support\Assets\Js;
-use Filament\Support\Facades\FilamentAsset;
-use Filament\Support\Facades\FilamentIcon;
+use Filament\Support\Assets\Css;
+use Filament\Support\Assets\Asset;
 use Illuminate\Filesystem\Filesystem;
-use Livewire\Features\SupportTesting\Testable;
-use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
+use Filament\Support\Facades\FilamentIcon;
+use Filament\Support\Facades\FilamentAsset;
+use Filament\Support\Assets\AlpineComponent;
+use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
+use Edwink\FilamentUserActivity\Livewire\ActiveUsersTable;
+use Edwink\FilamentUserActivity\Testing\TestsFilamentUserActivity;
+use Edwink\FilamentUserActivity\Commands\FilamentUserActivityCommand;
 
 class FilamentUserActivityServiceProvider extends PackageServiceProvider
 {
@@ -60,6 +62,7 @@ class FilamentUserActivityServiceProvider extends PackageServiceProvider
 
     public function packageRegistered(): void
     {
+        Livewire::component('filament-user-activity::active-users-table', ActiveUsersTable::class);
     }
 
     public function packageBooted(): void
