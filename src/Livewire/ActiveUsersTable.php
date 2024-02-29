@@ -28,12 +28,7 @@ class ActiveUsersTable extends Component implements HasForms, HasTable
         return $form
             ->schema([
                 Select::make('minutes')
-                    ->options([
-                        30 => '30 Minutes',
-                        60 => 'One hour',
-                        120 => '2 Hours',
-                        1440 => '24 hours',
-                    ])
+                    ->options(config("filament-user-activity.table.active-users.timeframe-selection"))
                     ->label('Active in last ')
                     ->reactive(),
             ]);
@@ -55,12 +50,14 @@ class ActiveUsersTable extends Component implements HasForms, HasTable
                 TextColumn::make('name'),
                 TextColumn::make('activities.created_at')
                     ->formatStateUsing(function ($state) {
-                        return max(explode(', ', $state));
-                    })->label('Last action'),
+                        $timestamp = max(explode(', ', $state));
+                        return Carbon::create($timestamp)->diffForHumans();
+                    })->label(__('filament-user-activity::user-activity.active-users-table.column.last_action_time')),
+
                 TextColumn::make('activities.url')
                     ->formatStateUsing(function ($state) {
                         return count(explode(', ', $state));
-                    })->label('Last action'),
+                    })->label(__('filament-user-activity::user-activity.active-users-table.column.last_action_count')),
 
             ])
             ->filters([

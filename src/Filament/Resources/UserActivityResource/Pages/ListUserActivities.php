@@ -2,8 +2,11 @@
 
 namespace Edwink\FilamentUserActivity\Filament\Resources\UserActivityResource\Pages;
 
-use Edwink\FilamentUserActivity\Filament\Resources\UserActivityResource;
+use Closure;
+use Filament\Tables\Table;
+use Filament\Actions\Action;
 use Filament\Resources\Pages\ListRecords;
+use Edwink\FilamentUserActivity\Filament\Resources\UserActivityResource;
 
 class ListUserActivities extends ListRecords
 {
@@ -12,6 +15,13 @@ class ListUserActivities extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
+            //
         ];
+    }
+
+
+    protected function makeTable(): Table
+    {
+        return parent::makeTable()->recordUrl(null);
     }
 }

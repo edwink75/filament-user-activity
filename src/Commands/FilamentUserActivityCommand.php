@@ -15,7 +15,7 @@ class FilamentUserActivityCommand extends Command
     public function handle(): int
     {
         $this->comment('Truncating datatable '.config('filament-user-activity.table.name'));
-        $query = UserActivity::whereDate('created_at', '<', Carbon::today()->subDays(config('filamanet-user-activity.datatable.retention-days')));
+        $query = UserActivity::whereDate('created_at', '<', Carbon::today()->subDays(config('filamanet-user-activity.table.retention-days')));
         $this->comment('Deleting '.$query->count().' of '.UserActivity::count().' entries.');
         $query->forceDelete();
         $this->comment('DONE');

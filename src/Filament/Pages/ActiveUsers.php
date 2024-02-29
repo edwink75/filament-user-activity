@@ -6,7 +6,7 @@ use Filament\Pages\Page;
 
 class ActiveUsers extends Page
 {
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationIcon = 'heroicon-o-users';
 
     protected static string $view = 'filament-user-activity::pages.active-users';
 
