@@ -2,19 +2,13 @@
 
 namespace Edwink\FilamentUserActivity\Filament\Resources;
 
-use Stringable;
 use App\Models\User;
-use Filament\Forms\Form;
-use Filament\Tables\Table;
-use Illuminate\Support\Str;
-use Filament\Resources\Resource;
-use Illuminate\Support\HtmlString;
-use Filament\Forms\Components\Select;
-use Filament\Tables\Columns\TextColumn;
-use Filament\Forms\Components\TextInput;
-use Filament\Tables\Filters\SelectFilter;
-use Edwink\FilamentUserActivity\Models\UserActivity;
 use Edwink\FilamentUserActivity\Filament\Resources\UserActivityResource\Pages;
+use Edwink\FilamentUserActivity\Models\UserActivity;
+use Filament\Resources\Resource;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Table;
 
 class UserActivityResource extends Resource
 {
@@ -26,7 +20,6 @@ class UserActivityResource extends Resource
     {
         return __('filament-user-activity::user-activity.resource.navigation');
     }
-
 
     public static function table(Table $table): Table
     {

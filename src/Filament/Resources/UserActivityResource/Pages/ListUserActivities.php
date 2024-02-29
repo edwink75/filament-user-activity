@@ -2,11 +2,9 @@
 
 namespace Edwink\FilamentUserActivity\Filament\Resources\UserActivityResource\Pages;
 
-use Closure;
-use Filament\Tables\Table;
-use Filament\Actions\Action;
-use Filament\Resources\Pages\ListRecords;
 use Edwink\FilamentUserActivity\Filament\Resources\UserActivityResource;
+use Filament\Resources\Pages\ListRecords;
+use Filament\Tables\Table;
 
 class ListUserActivities extends ListRecords
 {
@@ -18,7 +16,6 @@ class ListUserActivities extends ListRecords
             //
         ];
     }
-
 
     protected function makeTable(): Table
     {
