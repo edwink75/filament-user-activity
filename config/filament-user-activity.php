@@ -7,6 +7,7 @@ return [
         'retention-days' => env('FILAMENT_USER_ACTIVITY_RETENTION_DAYS', 60),
         'active-users' => [
             'timeframe-selection' => [
+                15 => '15 Minutes',
                 30 => '30 Minutes',
                 60 => 'One hour',
                 120 => '2 Hours',

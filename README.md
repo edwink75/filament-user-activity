@@ -42,7 +42,16 @@ This is the contents of the published config file:
 return [
     "table" => [
         "name" => env("FILAMENT_USER_ACTIVITY_TABLE_NAME", "user_activities"),
-        "retention-days" => env("FILAMENT_USER_ACTIVITY_RETENTION_DAYS", 60)
+        "retention-days" => env("FILAMENT_USER_ACTIVITY_RETENTION_DAYS", 60),
+        'active-users' => [
+            'timeframe-selection' => [
+                15 => '15 Minutes',
+                30 => '30 Minutes',
+                60 => 'One hour',
+                120 => '2 Hours',
+                1440 => '24 hours',
+            ],
+        ],
     ]
 ];
 ```
@@ -93,7 +102,7 @@ public function panel(Panel $panel): Panel
 ...
 ```
 
-Configure a scheduled task to truncate table depending on your configured days (default 60 days) or run is manually
+Configure a scheduled task to truncate table depending on your configured days (default 60 days) or run it manually from time to time.
 ```bash
 php artisan filament-user-activity:truncate-activities-table
 
