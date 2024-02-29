@@ -5,7 +5,7 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/edwink/filament-user-activity/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/edwink/filament-user-activity/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/edwink/filament-user-activity.svg?style=flat-square)](https://packagist.org/packages/edwink/filament-user-activity)
 
-
+![Filament Active Users](img/Active-Users-Table.png)
 
 Registers all requests and displays it conveniently to see currently online users, ie. with any requests in the last 15 minutes / 30 minutes / 60 minutes / day / week
 
@@ -93,15 +93,12 @@ public function panel(Panel $panel): Panel
 ...
 ```
 
-## Testing
-
+Configure a scheduled task to truncate table depending on your configured days (default 60 days) or run is manually
 ```bash
-composer test
+php artisan filament-user-activity:truncate-activities-table
+
 ```
 
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
 ## Contributing
 
