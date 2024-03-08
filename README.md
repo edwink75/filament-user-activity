@@ -5,7 +5,7 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/edwink/filament-user-activity/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/edwink/filament-user-activity/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/edwink/filament-user-activity.svg?style=flat-square)](https://packagist.org/packages/edwink/filament-user-activity)
 
-![Filament Active Users](https://github.com/edwink75/filament-user-activity/blob/main/img/Active-Users-Table.png)
+![Filament Active Users](https://raw.githubusercontent.com/edwink75/filament-user-activity/main/img/Active-Users-Table.png)
 
 Registers all requests and displays it conveniently to see currently online users, ie. with any requests in the last 15 minutes / 30 minutes / 60 minutes / day / week
 
