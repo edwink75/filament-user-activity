@@ -26,9 +26,6 @@ class UserActivity extends Model
      */
     public function user(): BelongsTo
     {
-
-        $getClass = config('filament-user-activity.model');
-        
-        return $this->belongsTo($getClass::class);
+        return $this->belongsTo(config('filament-user-activity.model'));
     }
 }
