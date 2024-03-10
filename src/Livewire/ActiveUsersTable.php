@@ -38,7 +38,7 @@ class ActiveUsersTable extends Component implements HasForms, HasTable
     {
         return $table
             ->query(
-                User::whereHas('activities', function ($query) {
+                config('filament-user-activity.model')::whereHas('activities', function ($query) {
                     $query->where('created_at', '>', Carbon::now()->subMinutes($this->minutes)->format('Y-m-d H:i:s'));
                 })
                     ->with('activities', function ($query) {
