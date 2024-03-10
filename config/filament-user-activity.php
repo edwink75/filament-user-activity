@@ -2,10 +2,11 @@
 
 // config for Edwink/FilamentUserActivity
 return [
+    'model' => \App\Models\User\User::class,
     'table' => [
         'name' => env('FILAMENT_USER_ACTIVITY_TABLE_NAME', 'user_activities'),
         'retention-days' => env('FILAMENT_USER_ACTIVITY_RETENTION_DAYS', 60),
-        'model' => \App\Models\User\User::class,
+        
         'active-users' => [
             'timeframe-selection' => [
                 15 => '15 Minutes',
