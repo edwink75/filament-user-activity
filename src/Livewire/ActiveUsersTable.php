@@ -2,7 +2,6 @@
 
 namespace Edwink\FilamentUserActivity\Livewire;
 
-use App\Models\User;
 use Carbon\Carbon;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Concerns\InteractsWithForms;

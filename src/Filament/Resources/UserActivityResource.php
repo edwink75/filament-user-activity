@@ -2,7 +2,6 @@
 
 namespace Edwink\FilamentUserActivity\Filament\Resources;
 
-use App\Models\User;
 use Edwink\FilamentUserActivity\Filament\Resources\UserActivityResource\Pages;
 use Edwink\FilamentUserActivity\Models\UserActivity;
 use Filament\Resources\Resource;
