@@ -15,6 +15,11 @@ class UserActivityResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function isScopedToTenant(): bool
+    {
+        return config('filament-user-activity.is_tenant_aware') ?? static::$isScopedToTenant;
+    }
+
     public static function getNavigationGroup(): ?string
     {
         return __('filament-user-activity::user-activity.resource.navigation');
