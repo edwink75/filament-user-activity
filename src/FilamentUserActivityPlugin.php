@@ -83,7 +83,7 @@ class FilamentUserActivityPlugin implements Plugin
 
     public function shouldRegisterNavigation(): ?bool
     {
-        return $this->shouldRegisterNavigation ?? config('filament-user-activity.should_register_navigation');
+        return $this->shouldRegisterNavigation ?? config('filament-user-activity.resources.should_register_navigation');
     }
 
     public function navigationGroup(string | Closure | null $group = null): static
