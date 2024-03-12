@@ -3,6 +3,16 @@
 // config for Edwink/FilamentUserActivity
 return [
     'model' => \App\Models\User::class,
+    'resources'=>[
+        'label' => 'User Activity',
+        'plural_label' => 'User Activities',
+        'navigation_group' => null,
+        'navigation_icon' => 'heroicon-o-photo',
+        'navigation_sort' => null,
+        'navigation_count_badge' => false,
+        'resource'=>\Edwink\FilamentUserActivity\Filament\Resources\UserActivityResource::class,
+    ],
+    'is_tenant_aware'=>false,
     'table' => [
         'name' => env('FILAMENT_USER_ACTIVITY_TABLE_NAME', 'user_activities'),
         'retention-days' => env('FILAMENT_USER_ACTIVITY_RETENTION_DAYS', 60),
