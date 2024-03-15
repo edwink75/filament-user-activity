@@ -32,6 +32,9 @@
         "pestphp/pest-plugin-arch": "^2.0",
         "pestphp/pest-plugin-laravel": "^2.0"
     },
+    "conflict": {
+        "z3d0x/filament-logger" : "*"
+    },
     "autoload": {
         "psr-4": {
             "Edwink\\FilamentUserActivity\\": "src/",
