@@ -17,4 +17,9 @@ return new class extends Migration
             $table->timestamps();
         });
     }
+
+    public function down(): void
+    {
+        Schema::dropIfExists(strval(config("filament-user-activity.table.name")));
+    }
 };

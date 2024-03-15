@@ -2,7 +2,6 @@
 
 namespace Edwink\FilamentUserActivity\Filament\Resources;
 
-use App\Models\User;
 use Edwink\FilamentUserActivity\Filament\Resources\UserActivityResource\Pages;
 use Edwink\FilamentUserActivity\Models\UserActivity;
 use Filament\Resources\Resource;
@@ -37,7 +36,7 @@ class UserActivityResource extends Resource
             ])
             ->filters([
                 SelectFilter::make('user_id')
-                    ->options(User::whereHas('activities')->pluck('name', 'id')),
+                    ->options(config('filament-user-activity.model')::whereHas('activities')->pluck('name', 'id')),
             ])
             ->actions([])
             ->bulkActions([
