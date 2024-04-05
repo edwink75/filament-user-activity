@@ -15,6 +15,16 @@ class UserActivityResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function getModelLabel(): string
+    {
+        return __('filament-user-activity::user-activity.resource.model_label');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('filament-user-activity::user-activity.resource.model_plural_label');
+    }
+
     public static function getNavigationGroup(): ?string
     {
         return __('filament-user-activity::user-activity.resource.navigation');
