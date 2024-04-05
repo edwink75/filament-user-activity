@@ -5,6 +5,8 @@ return [
     'currently-active-users' => 'Currently Active Users',
     'resource' => [
         'navigation' => 'Administration',
+        'model_label' => 'User Activity',
+        'model_plural_label' => 'User Activities',
     ],
     'active-users-table' => [
         'column' => [
