@@ -5,6 +5,8 @@ return [
     'currently-active-users' => 'Şu Anda Aktif Kullanıcılar',
     'resource' => [
         'navigation' => 'Yönetim',
+        'model_label' => 'Kullanıcı Aktivitesi',
+        'model_plural_label' => 'Kullanıcı Aktiviteleri',
     ],
     'active-users-table' => [
         'column' => [
