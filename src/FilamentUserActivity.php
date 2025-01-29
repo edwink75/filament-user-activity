@@ -2,6 +2,4 @@
 
 namespace Edwink\FilamentUserActivity;
 
-class FilamentUserActivity
-{
-}
+class FilamentUserActivity {}

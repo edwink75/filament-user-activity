@@ -13,31 +13,30 @@ class ActiveUsers extends Page
     public static function canAccess(): bool
     {
         // default mode is to allow access unless some level of security is applied
-        if(!config('filament-user-activity.access_control.enabled')) {
+        if (! config('filament-user-activity.access_control.enabled')) {
             return true;
         }
 
         /*
          * Access Control is enabled so now return false unless the user is allowed
          */
-        if(config('filament-user-activity.access_control.spatie.enabled')) {
-            if(auth()->user()?->hasPermissionTo(config('filament-user-activity.access_control.spatie.permission'))) {
+        if (config('filament-user-activity.access_control.spatie.enabled')) {
+            if (auth()->user()?->hasPermissionTo(config('filament-user-activity.access_control.spatie.permission'))) {
                 return true;
             }
         }
 
-
-        if(in_array(auth()->user()?->email, config('filament-user-activity.access_control.allowed.emails'))) {
+        if (in_array(auth()->user()?->email, config('filament-user-activity.access_control.allowed.emails'))) {
             return true;
         }
 
-        if(in_array(auth()->user()?->id, config('filament-user-activity.access_control.allowed.user_ids'))) {
+        if (in_array(auth()->user()?->id, config('filament-user-activity.access_control.allowed.user_ids'))) {
             return true;
         }
 
         return false;
     }
-    
+
     public static function getNavigationLabel(): string
     {
         return __('filament-user-activity::user-activity.currently-active-users');

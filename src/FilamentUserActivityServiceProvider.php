@@ -59,9 +59,7 @@ class FilamentUserActivityServiceProvider extends PackageServiceProvider
         }
     }
 
-    public function packageRegistered(): void
-    {
-    }
+    public function packageRegistered(): void {}
 
     public function packageBooted(): void
     {
@@ -89,7 +87,7 @@ class FilamentUserActivityServiceProvider extends PackageServiceProvider
         }
 
         // Testing
-        Testable::mixin(new TestsFilamentUserActivity());
+        Testable::mixin(new TestsFilamentUserActivity);
 
         // Register livewire components
         Livewire::component('filament-user-activity::active-users-table', ActiveUsersTable::class);
