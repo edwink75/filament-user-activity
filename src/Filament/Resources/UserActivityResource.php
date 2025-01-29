@@ -15,6 +15,34 @@ class UserActivityResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function canAccess(): bool
+    {
+        // default mode is to allow access unless some level of security is applied
+        if(!config('filament-user-activity.access_control.enabled')) {
+            return true;
+        }
+
+        /*
+         * Access Control is enabled so now return false unless the user is allowed
+         */
+        if(config('filament-user-activity.access_control.spatie.enabled')) {
+            if(auth()->user()?->hasPermissionTo(config('filament-user-activity.access_control.spatie.permission'))) {
+                return true;
+            }
+        }
+
+
+        if(in_array(auth()->user()?->email, config('filament-user-activity.access_control.allowed.emails'))) {
+            return true;
+        }
+
+        if(in_array(auth()->user()?->id, config('filament-user-activity.access_control.allowed.user_ids'))) {
+            return true;
+        }
+
+        return false;
+    }
+    
     public static function getModelLabel(): string
     {
         return __('filament-user-activity::user-activity.resource.model_label');

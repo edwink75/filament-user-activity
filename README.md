@@ -108,6 +108,19 @@ php artisan filament-user-activity:truncate-activities-table
 
 ```
 
+# Access Control
+To restrict access to the Resource and Page publish the config and edit the config file or add the following to your .env file:
+```bash
+# enable access control
+FILAMENT_USER_ACTIVITY_ACCESS_CONTROL_ENABLED=true
+# using Spaties - Roles & Permissions
+FILAMENT_USER_ACTIVITY_SPATIE_PERMISSIONS_ACTIVE=true
+FILAMENT_USER_ACTIVITY_SPATIE_PERMISSION="filament_user_activity.view" // the name of your permission default = 'filament_user_activity.view'
+# alternatively restrict access only to a list of specific emails
+FILAMENT_USER_ACTIVITY_ALLOWED_EMAILS="admin@test.com, admin2@test.com"
+# or user_ids...
+FILAMENT_USER_ACTIVITY_ALLOWED_USER_IDS="1,2,3,4"
+```
 
 ## Contributing
 
