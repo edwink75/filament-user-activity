@@ -57,7 +57,7 @@ return [
 ```
 
 ## Usage
-Add Global Middleware in `app/Http/Kernel.php`
+Add Global Middleware in `app/Http/Kernel.php` in Laravel 11 and below
 ```php
     /**
      * The application's global HTTP middleware stack.
@@ -71,6 +71,21 @@ Add Global Middleware in `app/Http/Kernel.php`
         \Edwink\FilamentUserActivity\Http\Middleware\RecordUserActivity::class,
     ];
 
+```
+
+Add Middleware in your Filament PanelProvider in Laravel 12, default AdminPanelProvider
+```php
+    public function panel(Panel $panel): Panel
+    {
+        return $panel
+            ->default()
+            ...
+            ->middleware([
+                \Edwink\FilamentUserActivity\Http\Middleware\RecordUserActivity::class
+            ...
+            ])
+            ...
+    }
 ```
 
 Add trait to User Model `app/Models/User.php` to add relationship `activities`
